@@ -1,7 +1,7 @@
 The Growing Tree:
 This code is intended to simulate a growing tree and show its progress over time.
 
-First Implementation:
+First Implementation: v1.0.0
 Each piece of limb is a node linked to its parents and children.
 Each Node has properties for:
     location
@@ -17,12 +17,16 @@ In this first version:
     The ability to organize the data in a tree and see it is the most important part.
     The visualization must be barebones and take up as little time as possible.
     
-Second Implementation:
+Second Implementation: v1.1.0
     Add leaf nodes
     Visualize leaf nodes
     Add sun
     Add sun visualization
     Add sun animation
+    
+Third Implementation: v1.2.0
+    Make it easier to generate generic trees
+    Create some process by which new branches are created
     
 
 
