@@ -9,52 +9,30 @@ Created on Tue Dec  1 08:39:30 2020
     
 '''
 
-#import  plotting functions
+import matplotlib.pyplot as plt
 
 
-class NoChildrenError(Exception):
-    '''No children present'''
-    pass
 
 class Tree:
-    def __init__(self, head_node):
-        self.head_node = head_node
-        
-    def DFS():
-        #traverses tree in depth first search and yields one node at a time
-        #yield node
-        pass
+    def __init__(self, root_node):
+        self.root = root_node
     
-class Node:
-    def __init__(self, x, y, parent= None):
-        self.parent = parent
-        self.x = x
-        self.y = y
-        self.children = []
+    def update(self):
+        root = self.root
+        for node in root.depth_first():
+            node.update_x_y()
     
-    def __repr__(self):
-        return f"Node({self.x}, {self.y}, has_parent = {bool(self.parent)})"
-    
-    def __iter__(self):
-        return iter(self.children)
-    
-    def get_children(self):
-        if self.children:
-            return self.children
-        else:
-            raise NoChildrenError
-        #return
-        
-    def add_child(self, x, y):
-        child = Node(x, y, self)
-        self.children.append(child)
-        #return
-    
-    def depth_first(self):
-        yield self
-        for child in self:
-            yield from child.depth_first()
-    
-def Visualize_Tree(tree):
-    
-    pass    
+    def visualize(self):
+        ax = plt.axes()
+        #starting at head, look through each node
+        root = self.root
+        for node in root.depth_first():
+            #plot node location
+            plt.plot(node.x, node.y, 'ro')
+            #plot connection to node from parent
+            parent = node.get_parent()
+            if parent != None:
+                ax.arrow(parent.x, parent.y, node.dx, node.dy, head_width=0.1)
+        plt.xlim(-5,5)
+        plt.ylim(0,5)
+        plt.show()
