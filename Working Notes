@@ -1,0 +1,20 @@
+The Growing Tree:
+This code is intended to simulate a growing tree and show its progress over time.
+
+First Implementation:
+Each piece of limb is a node linked to its parents and children.
+Each Node has properties for:
+    location
+    direction
+    children
+    parents
+A tree class contains:
+    links to the root node
+    functions to navigate the Tree
+A visualization function:
+    draws a given tree
+In this first version:
+    there is no growth
+    the tree must be manually created
+    The ability to organize the data in a tree and see it is the most important part.
+    The visualization must be barebones and take up as little time as possible.
