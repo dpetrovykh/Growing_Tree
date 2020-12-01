@@ -9,12 +9,59 @@ Each Node has properties for:
     children
     parents
 A tree class contains:
-    links to the root node
-    functions to navigate the Tree
-A visualization function:
-    draws a given tree
+    link to the root node
+    functions to update and visualize the tree
 In this first version:
     there is no growth
     the tree must be manually created
     The ability to organize the data in a tree and see it is the most important part.
     The visualization must be barebones and take up as little time as possible.
+    
+Second Implementation:
+    Add leaf nodes
+    Visualize leaf nodes
+    Add sun
+    Add sun visualization
+    Add sun animation
+    
+
+
+
+
+
+Thoughts on limbs:
+    I could continue to define only nodes, and the limb it represents is implicitly the length between it and the next(or previous) node.
+    I could also define limbs, which connect nodes.
+    I think I will stick with nodes until properties like mass, are, and COM location become too bothersome
+    Even if I continue to represent limb sections as nodes, i willlikely need to create a Node subclass specifically for hat purpose.
+
+Recap of previous notes:
+    Limb Properties:
+        Coordinates of origin
+        mass
+        area
+        density
+        coordinates of COM
+        next node
+        previous node
+        direction vector
+    Leaf Properties:
+        area
+        COM location
+        alignment vector
+        joint location
+        previous node
+        radius
+    Every Tick:
+        Leaf generates energy from sunlight
+        Direction of light is registered and accumulated
+        Stress in every limb calculated
+        Energy is alotted to each node
+        Limbs break off
+        Random limbs spawn leaves
+        Leaves with sufficient energy grow towards light, generating a new limb behind them
+        Limbs with sufficient energy and need increase in thickness
+        Nods with insufficent energy starve and die
+        The sun is placed in a new location
+    Energy generation:
+        shadows must be considered

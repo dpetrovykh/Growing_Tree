@@ -20,7 +20,7 @@ class Node:
         self.y = y
     
     def __repr__(self):
-        return f"Node({self.dx}, {self.dy}, has_parent = {bool(self.parent)})"
+        return f"Node({self.dx}, {self.dy})"
     
     def __iter__(self):
         return iter(self.children)
@@ -36,11 +36,6 @@ class Node:
             return self.children
         else:
             raise NoChildrenError
-        #return
-        
-    def gen_child(self, dx, dy):
-        child = Node(dx, dy, self)
-        self.children.append(child)
         #return
     
     def add_child(self, child_node):
@@ -59,3 +54,21 @@ class Node:
         yield self
         for child in self:
             yield from child.depth_first()
+
+class Limb(Node):
+    def __repr__(self):
+        return f"Limb({self.dx}, {self.dy})"
+    
+    def gen_child(self, dx, dy):
+        child = Limb(dx, dy, self)
+        self.children.append(child)
+        #return
+    
+    def gen_leaf(self, dx, dy):
+        child = Leaf(dx, dy, self)
+        self.children.append(child)
+            
+        
+class Leaf(Node):
+    def __repr__(self):
+        return f"Leaf({self.dx}, {self.dy})"
